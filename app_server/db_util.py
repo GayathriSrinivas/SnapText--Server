@@ -1,3 +1,4 @@
+
 #!/usr/bin/python
 
 # A python script connecting to a MongoDB given a MongoDB Connection URI.
@@ -37,7 +38,8 @@ def check_contact(contacts):
 			print contact['name'], ":" ,query["phone_number"] 
 			contact_indices.append(index)
 	db_close()
-	return json.dumps([dict(index=index) for index in contact_indices])
+	print "Done Processing all the contact List.. Sending them back to Client.. !!"
+	return json.dumps(contact_indices)
 
 def register_device(regid,phone_number):
     users = db_open()

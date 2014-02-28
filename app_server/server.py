@@ -10,7 +10,10 @@ API_KEY = 'key=AIzaSyAj-OXTDcDJhJBLbc7XNVfkHqQYNMnIn0w'
 
 @app.route('/contactList',methods = ['POST'])
 def contact_list():
-	return db_util.check_contact(request.json)
+	#print "##########",request.data
+	temp = json.loads(request.data.decode('cp437'))
+	print "????????????",temp
+	return db_util.check_contact(temp)
 
 @app.route('/registration')
 def registration():
