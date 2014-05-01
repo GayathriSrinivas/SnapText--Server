@@ -8,7 +8,6 @@ import pymongo
 import hashlib
 import json
 import os
-import boto.ses
 
 ### Standard URI format: mongodb://[dbuser:dbpassword@]host:port/dbname
 client = None
@@ -20,7 +19,7 @@ def fetch_api_key():
 
 def db_open():
 	global client
-	MONGODB_URI = 'mongodb://snaptext:gayathri@ds033709.mongolab.com:33709/snaptext'
+	MONGODB_URI = 'mongodb://127.0.0.1/snaptext'
 	client = pymongo.MongoClient(MONGODB_URI)
 	db = client.get_default_database()
 	return db['users']	
